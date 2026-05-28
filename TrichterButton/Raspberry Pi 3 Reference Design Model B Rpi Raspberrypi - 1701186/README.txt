@@ -1,0 +1,1 @@
+Raspberry Pi 3 Reference Design Model B Rpi Raspberrypi by alexandre_willame on Thingiverse: https://www.thingiverse.com/thing:1701186

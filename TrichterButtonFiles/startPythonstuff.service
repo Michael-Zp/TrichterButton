@@ -1,0 +1,11 @@
+[Unit]
+Description=Start trichter pythonstuff
+
+[Service]
+Type=simple
+User=michael
+WorkingDirectory=/home/michael
+ExecStart=/bin/bash /usr/bin/startPythonstuff.sh
+
+[Install]
+WantedBy=multi-user.target
