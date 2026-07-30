@@ -83,11 +83,9 @@ struct Dial5V {
 public:
     Dial5V(
         uint8_t pin,
-        const char* name,
-        const char* btPrefix) :
+        const char* name) :
         m_pin(pin),
-        m_name(name),
-        m_btPrefix(btPrefix)
+        m_name(name)
     { }
 
     void CheckState()
@@ -116,7 +114,6 @@ public:
 #endif // VERBOSE
             Serial.println(percentage);
 #endif // DEBUG
-            print_str_to_bt(m_btPrefix);
             softSerial.write(percentage + 1); // +1 to not send a 0 as this might be bad for string parsing etc
 
             m_lastSendPercentage = percentage;
@@ -127,7 +124,6 @@ public:
 private:
     uint8_t m_pin;
     const char* m_name;
-    const char* m_btPrefix;
     unsigned long m_lastSendTime = 0;
     float m_lastSendPercentage = -1;
 
@@ -136,8 +132,8 @@ private:
     static const float s_adcResolution = 1024.0;
 };
 
-Button trichterBtn(4, "Sending trichter pressed.\n", "tr-pr", "Sending trichter released.\n", "tr-re");
-Dial5V volumeDial(A0, "VolumeDial", "vol-percentage");
+Button trichterBtn(7, "Sending trichter pressed.\n", "tr-pr", "Sending trichter released.\n", "tr-re");
+Dial5V volumeDial(A0, "VolumeDial");
 
 char c=' ';
 boolean NL = true;
